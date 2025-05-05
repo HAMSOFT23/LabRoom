@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae6bbc263dffee45a6068e3f02a825b, type: 3}
+  m_Name: SettingsCollection
+  m_EditorClassIdentifier: 
+  identifier: 
+  settings:
+  - applyImmediately: 1
+    identifier: c783be92-ea79-4510-a047-3da773724f21
+    expanded: 0
+    overrideIdentifierWhenCopied: 1
+    setting:
+      rid: 491057460239663552
+    inputElementProviderSettings:
+      rid: 491057460239663553
+  settingsSaver: {fileID: 11400000, guid: 29cf30a09b51026478633523505de09d, type: 2}
+  inputTemplatesUIToolkit: {fileID: 0}
+  inputTemplatesUGUI: {fileID: 11400000, guid: d9d25fbb7348cfa43b60fc75c1ef7e46, type: 2}
+  audioMixer: {fileID: 0}
+  localizationProvider: {fileID: 0}
+  volumeProfile: {fileID: 0}
+  uguiLayoutPrefab: {fileID: 3018027412538633935, guid: b06b7d76a4a57f8499203acf464afe56, type: 3}
+  styleProfile: {fileID: 11400000, guid: b7bc0b43156c3ad489ed90b86276af56, type: 2}
+  providerCollectionOverride: {fileID: 0}
+  addEditModeStyleProfileListening: 1
+  addApplyStyleProfileScript: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 491057460239663552
+      type: {class: Setting_Empty, ns: CitrioN.SettingsMenuCreator, asm: CitrioN.SettingsMenuCreator}
+      data: 
+    - rid: 491057460239663553
+      type: {class: InputElementProviderSettings, ns: CitrioN.SettingsMenuCreator, asm: CitrioN.SettingsMenuCreator}
+      data:
+        customLabel: Escape Room Scape
+        parentIdentifier: menu-title
+        addSpacer: 1
+        spacerElementClass: setting-spacer
+        inputElementProvider_UIToolkit:
+          rid: 491057460239663554
+        inputElementProvider_UGUI:
+          rid: 491057460239663556
+    - rid: 491057460239663554
+      type: {class: InputElementProvider_UIT_None, ns: CitrioN.SettingsMenuCreator, asm: CitrioN.SettingsMenuCreator}
+      data: 
+    - rid: 491057460239663556
+      type: {class: InputElementProvider_UGUI_FromName_Title, ns: CitrioN.SettingsMenuCreator, asm: CitrioN.SettingsMenuCreator}
+      data: 

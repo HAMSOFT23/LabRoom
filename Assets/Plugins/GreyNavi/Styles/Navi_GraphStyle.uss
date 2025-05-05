@@ -1,0 +1,456 @@
+:root{
+
+	/*--------- Black Theme---------*/
+	--mainback-color:#2C2D30;
+    --thin-grid-lines-color:rgba(52, 57, 63, 0.2);
+	--thick-grid-lines-color:rgba(61, 67, 74, 0.4);
+	
+	--node-back-color:  rgba(90, 102, 139, 0.2);
+    
+	--node-title-color: rgba(77, 84, 95, 0.5);
+    --node-left-color: rgba(84, 91, 107, 0.7);
+    --node-right-color:rgba(72, 78, 92, 0.48);
+    
+	--node-opacity-color: 0.92;
+	
+	 --node-border-flow-color:rgba(156, 205, 236, 0.53); 
+    --node-text-color: rgb(191, 191, 191);
+    
+    
+	--little-button-color: rgb(91, 92, 99);
+
+	/*---------UI Panels---------*/
+--backPanel-Layer0-color:rgb(55, 55, 69);
+--backPanel-Layer1-color:rgb(70, 71, 78);
+
+--tree-panel-Title-color:rgb(61, 63, 69);
+--tree-panel-text-color:rgb(200, 200, 200);
+--tree-panel-values-color:rgb(80, 86, 96);
+--tree-panel-selection-color:rgb(86, 105, 135);
+--button-add-color:--tree-panel-Title-color;
+--debug-color:rgb(226, 139, 234);
+
+--top-tabbar-back-color:rgb(50, 50, 54);
+--top-tabbar-border-color:rgb(29, 31, 29);
+
+}
+
+	
+
+/*--------- Light Theme---------
+
+	--mainback-color:#676767;
+    --thin-grid-lines-color:rgba(52, 57, 63, 0.4);
+	--thick-grid-lines-color:rgba(61, 67, 74, 0.4);
+	
+	--node-back-color:  rgb(165, 109, 109);
+    
+	--node-title-color: rgb(96, 105, 118);
+    --node-left-color: rgb(197, 197, 197);
+    --node-right-color:rgb(197, 197, 197);
+    --node-border-flow-color:rgb(202, 202, 202);
+    --node-text-color: rgb(197, 197, 197);
+    --node-opacity-color: 1;
+    
+	--little-button-color: rgb(132, 134, 145);
+
+
+
+
+--BigPanels-color:rgb(141, 141, 143);
+--panel-headers-color:rgb(97, 97, 97);
+--panels-text-color:rgb(22, 22, 22);
+--panel-slots-color:rgb(194, 194, 194);
+--selectedPanel-color:rgb(107, 169, 223);
+--functionPanel-color:rgb(174, 111, 111)
+}    */
+#root-container {
+	flex-grow: 1;
+	flex-direction: row;
+}
+
+#root-content {
+	flex-grow: 1;
+	overflow: hidden;
+}
+
+#graph-content {
+	flex-grow: 1;
+	flex-direction: row;
+}
+
+#inspector-panel {
+	border-left-width: 2px;
+	border-left-color: #191919;
+	border-bottom-width: 1px;
+	border-bottom-color: #191919;
+	
+}
+/*background*/
+.graphView {
+	background-color: var(--mainback-color);
+}
+
+#graphRootView {
+	flex-grow: 1;
+}
+
+#graph-panel {
+	border-color: var(--backPanel-Layer0-color);
+	background-color:var(--backPanel-Layer0-color);
+	border-right-width: 3px;
+	border-top-width: 0px;
+}
+
+#status-bar {
+	height: 20px;
+	background-color:var(--backPanel-Layer1-color);
+}
+
+#status-error > Image {
+	width: 18px;
+	height: 18px;
+}
+
+ToolbarButton, ToolbarMenu, #status-zoom {
+	flex-shrink: 0;
+	-unity-text-align: middle-center;
+}
+
+#status-search {
+	left: 1px;
+	width: 150px;
+}
+
+.toggle-on {
+	background-color: #505050
+}
+
+/* flow edge */
+.edge.flow {
+	--edge-width: 2;
+}
+
+/* flow edge on hover */
+.edge.flow:hover {
+    --edge-width: 3;
+}
+/* flow edge  value*/
+.edge.value {
+	--edge-width: 1;
+}
+
+/* flow edge value on hover */
+.edge.value:hover {
+    --edge-width: 2;
+}
+
+.horizontal-graph .node-view #node-border > #contents .port {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.horizontal-graph .node-view #node-border > #contents .port > #connector {
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.flow-vertical #connector.proxy > #cap {
+    width: 8px;
+    height: 8px;
+    border-color: #363535;
+    border-radius: 4px;
+    margin-right: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#proxy-title {
+	background-color: rgba(29,29,29,0.8);
+	border-color: rgba(23, 171, 106, 0.8);
+	border-width: 1px;
+	border-radius: 6px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
+	position: absolute;
+	flex-direction: row;
+}
+
+.flow-vertical.input #proxy-title.proxy-flow {
+	background-color: rgba(15, 91, 35, 0.8);
+	border-color: rgba(23, 171, 106, 0.8);
+	border-width: 1px;
+	border-radius: 10px;
+	top: -18px;
+}
+
+.flow-horizontal.input #proxy-title.proxy-flow {
+	background-color: rgba(15, 91, 35, 0.8);
+	border-color: rgba(23, 171, 106, 0.8);
+	border-width: 1px;
+	border-radius: 10px;
+	top: 3px;
+	left: 12px;
+}
+
+.flow-vertical.output #proxy-title.proxy-flow {
+	background-color: rgb(82, 82, 82);             /* proxy icon */
+	border-color:rgb(94, 94, 94);
+	border-width: 1px;
+	border-radius: 10px;
+	top: 12px;
+}
+
+.flow-horizontal.output #proxy-title.proxy-flow {
+	background-color: rgba(15, 91, 35, 0.8);
+	border-color: rgba(23, 171, 106, 0.8);
+	border-width: 1px;
+	border-radius: 10px;
+	top: -3px;
+	left: 12px;
+}
+
+#proxy-title.proxy-value {
+	top: -5px;
+	margin-left: -2px;
+}
+
+.compact-value #proxy-title.proxy-value {
+	top: -3px;
+}
+
+#proxy-title Image {
+	width: 12px;
+	height: 12px;
+}
+
+#proxy-title > Label {
+	-unity-text-align: middle-center;
+	-unity-font-style: italic;
+	font-size: 10px;
+}
+
+.ui-hidden {
+	width: 0;
+	height: 0;
+	display: none;
+	position: absolute;
+	visibility: hidden;
+}
+
+.hide-image Image {
+	width: 0;
+	height: 0;
+	position: absolute;
+	visibility: hidden;
+	display: none;
+}
+
+.graphView > GridBackground {
+    --spacing: 30;
+    --line-color: var(--thin-grid-lines-color);
+    --thick-lines: 5;
+    --thick-line-color: var(--thick-grid-lines-color);
+	--grid-background-color : var(--mainback-color);
+	
+}
+
+Toogle,
+TextField {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+IntegerField .unity-text-element,
+FloatField .unity-text-element,
+TextField .unity-text-element {
+	margin-right: 3px;
+	margin-left: 3px;
+}
+
+PopupElement{
+	flex-shrink: 1;
+	flex-grow: 0;
+	flex-basis: auto;
+	min-height: 15px;
+}
+
+PopupElement > TextElement {
+	flex-shrink: 1;
+	flex-grow: 1;
+	white-space: nowrap;
+}
+
+PopupElement:hover {
+	background-color: rgb(91, 91, 91);
+}
+
+/* proxy */
+#proxy-line {
+	border-width: 0px;
+	position: absolute;
+}
+
+.flow-port #connector.proxy {
+    flex-direction: row;
+}
+
+/* flow output proxy */
+.flow-vertical.flow-port.output #proxy-line {
+    width: 4px;
+    height: 11px;
+    top: -12px;
+}
+
+/* flow input proxy */
+.flow-vertical.flow-port.input #proxy-line {
+	width: 4px;
+	height: 11px;
+	top: 7px;
+}
+
+/* flow proxy margin */
+.flow-vertical.flow-port.input #connector.proxy {
+	top: -20px;
+}
+
+/* flow proxy margin */
+.flow-vertical.flow-port.output #connector.proxy {
+    top: 20px;
+    height: 10px;
+}
+
+.flow-horizontal #connector.proxy {
+    border-radius: 8px;
+    position: absolute;
+    flex-direction: row;
+    align-items: center;
+    border-color: rgba(25, 25, 25, 0.8);
+    overflow: visible;
+}
+
+.flow-horizontal.input #connector.proxy {
+	left: -26px;
+}
+
+.flow-horizontal.output #connector.proxy {
+	left: 26px;
+}
+
+/* value output proxy */
+.value-port.output #proxy-line {
+	width: 21px;
+	height: 2px;
+	top: 2px;
+	left: -22px;
+}
+
+.flow-horizontal.flow-port.output #proxy-line {
+	width: 21px;
+	height: 4px;
+	left: -22px;
+}
+
+.flow-horizontal.flow-port.input #proxy-line {
+	width: 15px;
+	height: 4px;
+	left: 7px;
+}
+
+/* value input proxy */
+.value-port.input #proxy-line {
+	width: 17px;
+	height: 2px;
+	top: 2px;
+	left: 7px;
+}
+
+.compact .value-port #connector.proxy {
+    top: 1px;
+}
+
+.value-port #connector.proxy {
+    flex-direction: row;
+    overflow: visible;
+}
+
+.value-port.input #connector.proxy {
+	left:-14px;
+}
+
+.value-port.output #connector.proxy {
+	left:14px;
+}
+
+/* Proxy */
+#connector.proxy {
+    width: 10px;
+    height: 10px;
+    border-width: 0px;
+    position: absolute;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-radius: 8px;
+	scale: 0.5 0.5;
+    border-color: rgba(25, 25, 25, 0.8);
+}
+
+#connector.proxy > #cap {
+    width: 8px;
+    height: 8px;
+    border-color: #232323;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-radius: 4px;
+    margin-right: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+#line {
+    background-color: #9a9a9a;
+    align-self: stretch;
+    width: 1px;
+}
+
+.edgeBubble {
+	font-size: 11px;
+	color: #999999;
+	border-radius: 10px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	background-color: rgba(39, 39, 39, .9);
+	border-color: rgba(21, 21, 21, .75);
+	min-width: 24px;
+	max-width: 150px;
+	align-self: center;
+	min-height: 24px;
+	max-height: 150px;
+	padding: 4px 4px;
+	margin: 0;
+	-unity-text-align: middle-center;
+}
+
+.edgeBubble.candidate {
+	opacity: .5;
+}
+
+.edge-debug.value {
+	--edge-width: 4;
+}
+
+.edge-debug.value:hover {
+	--edge-width: 6;
+}
+
+.edge-debug > .edgeBubble {
+	border-color: #d00000;
+}
