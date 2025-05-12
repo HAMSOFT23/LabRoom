@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1107757212360913193}
   - component: {fileID: 3294143905313890827}
   - component: {fileID: 3510191115513652350}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "escal\xF3n"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

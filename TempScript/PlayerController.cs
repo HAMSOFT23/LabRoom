@@ -25,7 +25,7 @@ public class PlayerController : MaxyGames.UNode.RuntimeBehaviour {
 	private Vector3 _move;
 	[SerializeField]
 	private float sphereSize;
-	public Transform spherePosition;
+	public Vector3 spherePosition;
 	public LayerMask ground;
 	
 	public override void OnAwake() {
@@ -71,12 +71,22 @@ public class PlayerController : MaxyGames.UNode.RuntimeBehaviour {
 	
 	public bool GroundCheck() {
 		Collider[] _out = new Collider[0];
-		return Physics.SphereCast(this.transform.position, sphereSize, ((Vector3)-base.transform.up), out _, 4F, ground);
+		return Physics.SphereCast((this.transform.position - spherePosition), sphereSize, ((Vector3)-base.transform.up), out _, 10F, ground);
 	}
 	
 	private void OnDrawGizmos() {
 		Gizmos.color = new Color() { r = 1F, g = 0.004716992F, b = 0.004716992F, a = 1F };
-		Gizmos.DrawWireSphere(spherePosition.transform.position, sphereSize);
+		Gizmos.DrawWireSphere((this.transform.position - spherePosition), sphereSize);
+	}
+	
+	private void FixedUpdate() {
+		GroundCheck();
+		if(GroundCheck()) {
+			Debug.Log("Grounded");
+		}
+		 else {
+			Debug.Log("Not Grounded");
+		}
 	}
 }
 

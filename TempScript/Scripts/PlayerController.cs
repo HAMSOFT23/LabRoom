@@ -25,7 +25,7 @@ public class PlayerController : MaxyGames.UNode.RuntimeBehaviour {
 	private UnityEngine.Vector3 _move;
 	[UnityEngine.SerializeField]
 	private float sphereSize;
-	public UnityEngine.Transform spherePosition;
+	public UnityEngine.Vector3 spherePosition;
 	public UnityEngine.LayerMask ground;
 	
 	public override void OnAwake() {
@@ -71,12 +71,22 @@ public class PlayerController : MaxyGames.UNode.RuntimeBehaviour {
 	
 	public bool GroundCheck() {
 		UnityEngine.Collider[] _out = new UnityEngine.Collider[0];
-		return UnityEngine.Physics.SphereCast(this.transform.position, sphereSize, ((UnityEngine.Vector3)-base.transform.up), out _, 4F, ground);
+		return UnityEngine.Physics.SphereCast((this.transform.position - spherePosition), sphereSize, ((UnityEngine.Vector3)-base.transform.up), out _, 10F, ground);
 	}
 	
 	private void OnDrawGizmos() {
 		UnityEngine.Gizmos.color = new UnityEngine.Color() { r = 1F, g = 0.004716992F, b = 0.004716992F, a = 1F };
-		UnityEngine.Gizmos.DrawWireSphere(this.transform.position, sphereSize);
+		UnityEngine.Gizmos.DrawWireSphere((this.transform.position - spherePosition), sphereSize);
+	}
+	
+	private void FixedUpdate() {
+		GroundCheck();
+		if(GroundCheck()) {
+			UnityEngine.Debug.Log("Grounded");
+		}
+		 else {
+			UnityEngine.Debug.Log("Not Grounded");
+		}
 	}
 }
 

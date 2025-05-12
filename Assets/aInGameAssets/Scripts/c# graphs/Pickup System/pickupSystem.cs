@@ -46,14 +46,19 @@ public class PickupSystem : MonoBehaviour
         }
     }
     
-    private void PickupObject(GameObject pickObj) {
-        if(pickObj.GetComponent<Rigidbody>()) {
+    private void PickupObject(GameObject pickObj)
+    {
+        if(pickObj.GetComponent<Rigidbody>())
+        {
             heldObjRB = pickObj.GetComponent<Rigidbody>();
             heldObjRB.useGravity = false;
             heldObjRB.linearDamping = 10; // Use drag instead of linearDamping
             heldObjRB.angularDamping = 5; // Add angular drag
             heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
             heldObjRB.interpolation = RigidbodyInterpolation.Interpolate; // Add interpolation
+            
+            heldObjRB.includeLayers = ~0;
+            heldObjRB.excludeLayers = LayerMask.GetMask("Player");
             heldObj = pickObj;
             // Don't parent the object - can cause physics issues
         }
@@ -65,6 +70,9 @@ public class PickupSystem : MonoBehaviour
         heldObjRB.angularDamping = 0.05f;
         heldObjRB.constraints = RigidbodyConstraints.None;
         heldObjRB.interpolation = RigidbodyInterpolation.None;
+        
+        heldObjRB.excludeLayers = LayerMask.GetMask("Nothing");
+
         heldObj = null;
     }
 }
